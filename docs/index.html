@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Foundation for Apps Grid System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="../dist/foa_grid.css" media="screen" title="no title" charset="utf-8">
+    <style media="screen">
+      .demo-container {
+
+      }
+
+      .demo-container > .grid-block {
+        background-color: #ccc;
+        height: 100px;
+        margin: 0 !important;
+      }
+      .demo-container.compact > .grid-block {
+        height: 50px;
+      }
+
+      .demo-container.expand > .grid-block {
+        height: 150px;
+      }
+
+      .demo-block,
+      .demo-content {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-frame">
+      <div class="grid-block vertical">
+        <div class="grid-content shrink">
+          <h3>Foundation for Apps Grid System</h3>
+          <hr>
+        </div>
+
+        <div class="grid-block">
+          <div class="grid-block small-3">
+            <div class="grid-content">
+              <div class="list-group">
+                <a href="#grid-frame" class="list-group-item">Grid Frame</a>
+                <a href="#grid-block" class="list-group-item">Grid Block</a>
+                <a href="#grid-content" class="list-group-item">Grid Content</a>
+                <a href="#column-sizing" class="list-group-item">Column Sizing</a>
+                <a href="#vertical-grid" class="list-group-item">Vertical Grid</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid-block small-9">
+            <div class="grid-content">
+              <a name="grid-frame"></a>
+              <h2>Grid Frame</h2>
+              <p>
+                The grid frame is the base structure for creating a full application experience.
+                <code>.grid-frame</code> will use the full height of browser and setup flexbox.
+              </p>
+              <pre><code>&lt;body&gt;
+  &lt;div class="grid-frame"&gt;
+    &lt;div class="grid-block"&gt;&lt;/div&gt;
+    &lt;div class="grid-block"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/body&gt;
+</code></pre>
+
+              <a name="grid-block"></a>
+              <h2>Grid Block</h2>
+              <p>
+                <code>.grid-block</code> is the foundation of the grid system. It
+                can create columns and rows. They can also have a defined size and reorderd.
+              </p>
+
+              <pre><code>&lt;div class="grid-block"&gt;
+  &lt;div class="grid-block"&gt;&lt;/div&gt;
+  &lt;div class="grid-block"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              By default, the code above will create columns:
+
+              <div class="demo-container">
+                <div class="grid-block">
+                  <div class="grid-block demo-block"></div>
+                  <div class="grid-block demo-block"></div>
+                </div>
+              </div>
+
+              <a name="grid-content"></a>
+              <h2>Grid Content</h2>
+              <p>
+                <code>.grid-content</code> behaves like <code>.grid-block</code>
+                But <code>.grid-content</code> will have left and right padding and
+                (as the name implies) it is meant to display content.
+              </p>
+
+              <p>
+                Given the nature of flexbox, if you use any element within <code>.grid-block</code>
+                without the class <code>grid-content</code> you can see bizarre layout. For that
+                reason it is recommended to use <code>.grid-content</code> for content.
+              </p>
+
+              <div class="demo-container">
+                <div class="grid-block">
+                  <div class="grid-content demo-content">.grid-content (has padding)</div>
+                  <div class="grid-block demo-block">.grid-block (no padding)</div>
+                </div>
+              </div>
+
+              <h3>Intermixing Grid Block and Grid Content</h3>
+              <p>
+                Both classes can be intermixed (as the example above shows) to acheive the desired layout.
+              </p>
+
+              <a name="column-sizing"></a>
+              <h2>Column Sizing</h2>
+              <p>
+                You can add <code>.small-x</code>, <code>.medium-x</code>, <code>.large-x</code>
+                to define the width of a column. Where <code>x</code> is a column number of 1-12
+                and small, medium, or large is the breakpoint.
+              </p>
+
+              <pre><code>&lt;div class="grid-block"&gt;
+  &lt;div class="grid-block small-3"&gt;&lt;/div&gt;
+  &lt;div class="grid-block small-9"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+              <div class="demo-container compact">
+                <div class="grid-block">
+                  <div class="grid-block small-3 demo-block">3</div>
+                  <div class="grid-block small-9 demo-block">9</div>
+                </div>
+                <div class="grid-block">
+                  <div class="grid-block small-5 demo-block">5</div>
+                  <div class="grid-block small-7 demo-block">7</div>
+                </div>
+
+                <div class="grid-block">
+                  <div class="grid-block small-1 demo-block">1</div>
+                  <div class="grid-block small-1 demo-block">1</div>
+                  <div class="grid-block small-1 demo-block">1</div>
+                  <div class="grid-block small-1 demo-block">1</div>
+                  <div class="grid-block small-1 demo-block">1</div>
+                  <div class="grid-block small-1 demo-block">1</div>
+                  <div class="grid-block small-1 demo-block">1</div>
+                  <div class="grid-block small-1 demo-block">1</div>
+                  <div class="grid-block small-1 demo-block">1</div>
+                  <div class="grid-block small-1 demo-block">1</div>
+                  <div class="grid-block small-1 demo-block">1</div>
+                  <div class="grid-block small-1 demo-block">1</div>
+                </div>
+              </div>
+
+              <h4>Column Expanding</h4>
+              <p>
+                If you don't define a column width, it will expand to fill the
+                remaining container width.
+              </p>
+
+              <pre><code>&lt;div class="grid-block"&gt;
+  &lt;div class="grid-block small-3"&gt;&lt;/div&gt;
+  &lt;div class="grid-block"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              <div class="demo-container compact">
+                <div class="grid-block">
+                  <div class="grid-block small-3 demo-block">3</div>
+                  <div class="grid-block demo-block"></div>
+                </div>
+              </div>
+
+              <h4>Column Collapsing</h4>
+              <p>
+                If you want to shrink the width of a container to match the content
+                add the class of <code>shrink</code>.
+              </p>
+
+              <pre><code>&lt;div class="grid-block"&gt;
+  &lt;div class="grid-block shrink"&gt;Some Content&lt;/div&gt;
+  &lt;div class="grid-block"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              <div class="demo-container">
+                <div class="grid-block">
+                  <div class="grid-block shrink demo-block">Some Content</div>
+                  <div class="grid-block demo-block"></div>
+                </div>
+              </div>
+
+              <a name="vertical-grid"></a>
+              <h2>Vertical Grid</h2>
+              <p>
+                This is the cool part.
+              </p>
+
+              <p>
+                Vertical grids are defined be adding a <code>vertical</code> class to the parent
+                <code>.grid-block</code>
+              </p>
+              <div class="demo-container">
+                <div class="grid-block vertical">
+                  <div class="grid-block demo-block"></div>
+                  <div class="grid-block demo-block"></div>
+                </div>
+              </div>
+
+              <p>
+                It's difficult to see what is happening here. It just looks like
+                a couple of rows doesn't it. However, each <code>.grid-block</code> under
+                <code>.vertical</code> will stretch to fill the space.
+              </p>
+
+              <p>
+                Here is a better example, showing vertical grid next to a single <code>.grid-block</code>.
+              </p>
+
+              <pre><code>&lt;div class="grid-block"&gt;
+  &lt;div class="grid-block vertical"&gt;
+    &lt;div class="grid-block demo-block"&gt;&lt;/div&gt;
+    &lt;div class="grid-block demo-block"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="grid-block demo-block"&gt;&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+              <div class="demo-container expand">
+                <div class="grid-block">
+                  <div class="grid-block vertical">
+                    <div class="grid-block demo-block"></div>
+                    <div class="grid-block demo-block"></div>
+                  </div>
+                  <div class="grid-block demo-block"></div>
+                </div>
+              </div>
+
+              <h4>Vertical Column Collapsing</h4>
+              <p>
+                Like columns, the vertical columns can also be collapsed by adding the
+                class of <code>shrink</code>.
+              </p>
+
+              <pre><code>&lt;div class="grid-block"&gt;
+  &lt;div class="grid-block vertical"&gt;
+    &lt;div class="grid-block demo-block"&gt;&lt;/div&gt;
+    &lt;div class="grid-block demo-block shrink"&gt;Some Content&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="grid-block vertical"&gt;
+    &lt;div class="grid-block demo-block shrink"&gt;Other Content&lt;/div&gt;
+    &lt;div class="grid-block demo-block"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+              <div class="demo-container expand">
+                <div class="grid-block">
+                  <div class="grid-block vertical">
+                    <div class="grid-block demo-block"></div>
+                    <div class="grid-block demo-block shrink">Some Content</div>
+                  </div>
+                  <div class="grid-block vertical">
+                    <div class="grid-block demo-block shrink">Other Content</div>
+                    <div class="grid-block demo-block"></div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
