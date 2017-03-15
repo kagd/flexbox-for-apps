@@ -1,0 +1,54 @@
+header {
+  background-color: #000;
+  color: #f3f3f3;
+  text-align: center;
+}
+
+nav {
+  background-color: #222;
+  border-right: 1px solid #ccc;
+}
+
+nav a {
+  color: #f3f3f3;
+  display: block;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid #333;
+}
+
+nav a:hover {
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+}
+
+.demo-container {
+  margin-bottom: 10px;
+}
+
+.demo-container > .grid-block {
+  background-color: #d9edf7;
+  height: 100px;
+  margin: 0 !important;
+}
+.demo-container.compact > .grid-block {
+  height: 50px;
+}
+
+.demo-container.expand > .grid-block {
+  height: 150px;
+}
+
+.demo-block,
+.demo-content {
+  border: 1px solid #bce8f1;
+  color: #31708f;
+}
+
+.hljs {
+  background-color: transparent;
+}
+
+pre {
+  padding: 0;
+}

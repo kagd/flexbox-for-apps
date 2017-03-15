@@ -3,63 +3,39 @@
   <head>
     <meta charset="utf-8">
     <title>Foundation for Apps Grid System</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen" title="no title" charset="utf-8">
-    <link rel="stylesheet" href="../dist/foa_grid.css" media="screen" title="no title" charset="utf-8">
-    <style media="screen">
-      .demo-container {
-
-      }
-
-      .demo-container > .grid-block {
-        background-color: #ccc;
-        height: 100px;
-        margin: 0 !important;
-      }
-      .demo-container.compact > .grid-block {
-        height: 50px;
-      }
-
-      .demo-container.expand > .grid-block {
-        height: 150px;
-      }
-
-      .demo-block,
-      .demo-content {
-        border: 1px solid #000;
-      }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/styles/default.min.css">
+    <link rel="stylesheet" href="./flexbox-for-apps.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="./demo.css" media="screen" charset="utf-8">
   </head>
   <body>
     <div class="grid-frame">
       <div class="grid-block vertical">
-        <div class="grid-content shrink">
-          <h3>Foundation for Apps Grid System</h3>
-          <hr>
-        </div>
+        <header class="grid-content shrink">
+          <h3>Flexbox for Apps</h3>
+        </header>
 
         <div class="grid-block">
-          <div class="grid-block small-3">
-            <div class="grid-content">
-              <div class="list-group">
-                <a href="#grid-frame" class="list-group-item">Grid Frame</a>
-                <a href="#grid-block" class="list-group-item">Grid Block</a>
-                <a href="#grid-content" class="list-group-item">Grid Content</a>
-                <a href="#column-sizing" class="list-group-item">Column Sizing</a>
-                <a href="#vertical-grid" class="list-group-item">Vertical Grid</a>
-              </div>
+          <nav class="grid-block small-3">
+            <div class="grid-content collapse">
+              <a href="#grid-frame">Grid Frame</a>
+              <a href="#grid-block">Grid Block</a>
+              <a href="#grid-content">Grid Content</a>
+              <a href="#column-sizing">Column Sizing</a>
+              <a href="#vertical-grid">Vertical Grid</a>
             </div>
-          </div>
+          </nav>
 
-          <div class="grid-block small-9">
+          <section class="grid-block small-9">
             <div class="grid-content">
               <a name="grid-frame"></a>
               <h2>Grid Frame</h2>
               <p>
                 The grid frame is the base structure for creating a full application experience.
-                <code>.grid-frame</code> will use the full height of browser and setup flexbox.
+                <code class="html">.grid-frame</code> will use the full height of browser and setup flexbox.
               </p>
-              <pre><code>&lt;body&gt;
+              <pre><code class="html">&lt;body&gt;
   &lt;div class="grid-frame"&gt;
     &lt;div class="grid-block"&gt;&lt;/div&gt;
     &lt;div class="grid-block"&gt;&lt;/div&gt;
@@ -70,16 +46,16 @@
               <a name="grid-block"></a>
               <h2>Grid Block</h2>
               <p>
-                <code>.grid-block</code> is the foundation of the grid system. It
+                <code class="html">.grid-block</code> is the foundation of the grid system. It
                 can create columns and rows. They can also have a defined size and reorderd.
               </p>
 
-              <pre><code>&lt;div class="grid-block"&gt;
+              <pre><code class="html">&lt;div class="grid-block"&gt;
   &lt;div class="grid-block"&gt;&lt;/div&gt;
   &lt;div class="grid-block"&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
-              By default, the code above will create columns:
+              <p>By default, the code above will create columns:</p>
 
               <div class="demo-container">
                 <div class="grid-block">
@@ -88,18 +64,20 @@
                 </div>
               </div>
 
+              <p>If you want to change the layout to be vertical instead, checkout out the <a href="#vertical-grid">vertical grid section</a>.</p>
+
               <a name="grid-content"></a>
               <h2>Grid Content</h2>
               <p>
-                <code>.grid-content</code> behaves like <code>.grid-block</code>
-                But <code>.grid-content</code> will have left and right padding and
+                <code class="html">.grid-content</code> behaves like <code class="html">.grid-block</code>
+                But <code class="html">.grid-content</code> will have left and right padding and
                 (as the name implies) it is meant to display content.
               </p>
 
               <p>
-                Given the nature of flexbox, if you use any element within <code>.grid-block</code>
-                without the class <code>grid-content</code> you can see bizarre layout. For that
-                reason it is recommended to use <code>.grid-content</code> for content.
+                Given the nature of flexbox, if you use any element within <code class="html">.grid-block</code>
+                without the class <code class="html">grid-content</code> you can see bizarre layout. For that
+                reason it is recommended to use <code class="html">.grid-content</code> for content.
               </p>
 
               <div class="demo-container">
@@ -109,6 +87,12 @@
                 </div>
               </div>
 
+              <pre><code class="html">&lt;div class="grid-block"&gt;
+  &lt;div class="grid-content"&gt;.grid-content (has padding)&lt;/div&gt;
+  &lt;div class="grid-block"&gt;.grid-block (no padding)&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
               <h3>Intermixing Grid Block and Grid Content</h3>
               <p>
                 Both classes can be intermixed (as the example above shows) to acheive the desired layout.
@@ -117,14 +101,34 @@
               <a name="column-sizing"></a>
               <h2>Column Sizing</h2>
               <p>
-                You can add <code>.small-x</code>, <code>.medium-x</code>, <code>.large-x</code>
-                to define the width of a column. Where <code>x</code> is a column number of 1-12
+                You can add <code class="html">.small-x</code>, <code class="html">.medium-x</code>, <code class="html">.large-x</code>
+                to define the width of a column. Where <code class="html">x</code> is a column number of 1-12
                 and small, medium, or large is the breakpoint.
               </p>
 
-              <pre><code>&lt;div class="grid-block"&gt;
+              <pre><code class="html">&lt;div class="grid-block"&gt;
   &lt;div class="grid-block small-3"&gt;&lt;/div&gt;
   &lt;div class="grid-block small-9"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="grid-block"&gt;
+  &lt;div class="grid-block small-5"&gt;&lt;/div&gt;
+  &lt;div class="grid-block small-7"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="grid-block"&gt;
+  &lt;div class="grid-block small-12"&gt;&lt;/div&gt;
+  &lt;div class="grid-block small-12"&gt;&lt;/div&gt;
+  &lt;div class="grid-block small-12"&gt;&lt;/div&gt;
+  &lt;div class="grid-block small-12"&gt;&lt;/div&gt;
+  &lt;div class="grid-block small-12"&gt;&lt;/div&gt;
+  &lt;div class="grid-block small-12"&gt;&lt;/div&gt;
+  &lt;div class="grid-block small-12"&gt;&lt;/div&gt;
+  &lt;div class="grid-block small-12"&gt;&lt;/div&gt;
+  &lt;div class="grid-block small-12"&gt;&lt;/div&gt;
+  &lt;div class="grid-block small-12"&gt;&lt;/div&gt;
+  &lt;div class="grid-block small-12"&gt;&lt;/div&gt;
+  &lt;div class="grid-block small-12"&gt;&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
@@ -160,7 +164,7 @@
                 remaining container width.
               </p>
 
-              <pre><code>&lt;div class="grid-block"&gt;
+              <pre><code class="html">&lt;div class="grid-block"&gt;
   &lt;div class="grid-block small-3"&gt;&lt;/div&gt;
   &lt;div class="grid-block"&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -175,10 +179,10 @@
               <h4>Column Collapsing</h4>
               <p>
                 If you want to shrink the width of a container to match the content
-                add the class of <code>shrink</code>.
+                add the class of <code class="html">shrink</code>.
               </p>
 
-              <pre><code>&lt;div class="grid-block"&gt;
+              <pre><code class="html">&lt;div class="grid-block"&gt;
   &lt;div class="grid-block shrink"&gt;Some Content&lt;/div&gt;
   &lt;div class="grid-block"&gt;&lt;/div&gt;
 &lt;/div&gt;
@@ -197,8 +201,8 @@
               </p>
 
               <p>
-                Vertical grids are defined be adding a <code>vertical</code> class to the parent
-                <code>.grid-block</code>
+                Vertical grids are defined be adding a <code class="html">vertical</code> class to the parent
+                <code class="html">.grid-block</code>
               </p>
               <div class="demo-container">
                 <div class="grid-block vertical">
@@ -209,20 +213,20 @@
 
               <p>
                 It's difficult to see what is happening here. It just looks like
-                a couple of rows doesn't it. However, each <code>.grid-block</code> under
-                <code>.vertical</code> will stretch to fill the space.
+                a couple of rows doesn't it. However, each <code class="html">.grid-block</code> under
+                <code class="html">.vertical</code> will stretch to fill the space.
               </p>
 
               <p>
-                Here is a better example, showing vertical grid next to a single <code>.grid-block</code>.
+                Here is a better example, showing vertical grid next to a single <code class="html">.grid-block</code>.
               </p>
 
-              <pre><code>&lt;div class="grid-block"&gt;
+              <pre><code class="html">&lt;div class="grid-block"&gt;
   &lt;div class="grid-block vertical"&gt;
-    &lt;div class="grid-block demo-block"&gt;&lt;/div&gt;
-    &lt;div class="grid-block demo-block"&gt;&lt;/div&gt;
+    &lt;div class="grid-block"&gt;&lt;/div&gt;
+    &lt;div class="grid-block"&gt;&lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class="grid-block demo-block"&gt;&lt;/div&gt;
+  &lt;div class="grid-block"&gt;I am the same height as the two rows&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
@@ -232,24 +236,24 @@
                     <div class="grid-block demo-block"></div>
                     <div class="grid-block demo-block"></div>
                   </div>
-                  <div class="grid-block demo-block"></div>
+                  <div class="grid-block demo-block">I am the same height as the two rows</div>
                 </div>
               </div>
 
               <h4>Vertical Column Collapsing</h4>
               <p>
                 Like columns, the vertical columns can also be collapsed by adding the
-                class of <code>shrink</code>.
+                class of <code class="html">shrink</code>.
               </p>
 
-              <pre><code>&lt;div class="grid-block"&gt;
+              <pre><code class="html">&lt;div class="grid-block"&gt;
   &lt;div class="grid-block vertical"&gt;
-    &lt;div class="grid-block demo-block"&gt;&lt;/div&gt;
-    &lt;div class="grid-block demo-block shrink"&gt;Some Content&lt;/div&gt;
+    &lt;div class="grid-block demo-block"&gt;I expand since the other content shrinks&lt;/div&gt;
+    &lt;div class="grid-block demo-block shrink"&gt;Box shrinks to fit content&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class="grid-block vertical"&gt;
-    &lt;div class="grid-block demo-block shrink"&gt;Other Content&lt;/div&gt;
-    &lt;div class="grid-block demo-block"&gt;&lt;/div&gt;
+    &lt;div class="grid-block demo-block shrink"&gt;Box shrinks to fit content&lt;/div&gt;
+    &lt;div class="grid-block demo-block"&gt;I expand since the other content shrinks&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -257,20 +261,23 @@
               <div class="demo-container expand">
                 <div class="grid-block">
                   <div class="grid-block vertical">
-                    <div class="grid-block demo-block"></div>
-                    <div class="grid-block demo-block shrink">Some Content</div>
+                    <div class="grid-block demo-block">I expand since the other content shrinks</div>
+                    <div class="grid-block demo-block shrink">Box shrinks to fit content</div>
                   </div>
                   <div class="grid-block vertical">
-                    <div class="grid-block demo-block shrink">Other Content</div>
-                    <div class="grid-block demo-block"></div>
+                    <div class="grid-block demo-block shrink">Box shrinks to fit content</div>
+                    <div class="grid-block demo-block">I expand since the other content shrinks</div>
                   </div>
                 </div>
               </div>
 
             </div>
-          </div>
+          </section>
         </div>
       </div>
     </div>
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.3.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

@@ -1,29 +1,29 @@
 {
-  "name": "foa_grid",
-  "version": "1.2.0",
-  "description": "Foundation for Apps Grid System",
-  "main": "dist/foa_grid.css",
+  "name": "flexbox-for-apps",
+  "version": "1.0.0",
+  "description": "A flexbox grid system with vertical flex",
+  "main": "dist/flexbox-for-apps.css",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "node-sass scss/foa_grid.scss -o dist"
+    "build": "node-sass scss/flexbox-for-apps.scss -o dist",
+    "start": "./scripts/start.sh"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kagd/foa_grid.git"
+    "url": "git+https://github.com/kagd/flexbox-for-apps.git"
   },
   "keywords": [
     "flexbox",
     "grid",
-    "foundation"
+    "vertical"
   ],
-  "author": "ZURB",
+  "author": "gklinsing@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kagd/foa_grid/issues"
+    "url": "https://github.com/kagd/flexbox-for-apps/issues"
   },
-  "homepage": "https://github.com/kagd/foa_grid#readme",
+  "homepage": "https://github.com/kagd/flexbox-for-apps#readme",
   "devDependencies": {
-    "foundation-apps": "^1.2.0",
-    "node-sass": "^3.4.2"
+    "http-server": "^0.9.0",
+    "node-sass": "^4.5.0"
   }
 }
