@@ -7,4 +7,4 @@ This is just the Foundation for Apps grid system in a stand-alone repo.
 The vertical grid is the main reason for this repo. I don't care for most of Foundation's
 styles, but their vertical grid is the bomb!
 
-[Demo](/docs)
+[Demo](http://kagd.github.io/docs)
