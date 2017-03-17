@@ -1,10 +1,10 @@
 {
   "name": "flexbox-for-apps",
   "version": "1.0.0",
-  "description": "A flexbox grid system with vertical flex",
-  "main": "dist/flexbox-for-apps.css",
+  "description": "A flexbox grid system with horizontal and vertical grid support",
+  "main": "dist/flexbox-for-apps.min.css",
   "scripts": {
-    "build": "node-sass scss/flexbox-for-apps.scss -o dist",
+    "build": "./scripts/build.sh",
     "start": "./scripts/start.sh"
   },
   "repository": {
@@ -21,7 +21,7 @@
   "bugs": {
     "url": "https://github.com/kagd/flexbox-for-apps/issues"
   },
-  "homepage": "https://github.com/kagd/flexbox-for-apps#readme",
+  "homepage": "http://kagd.github.io/flexbox-for-apps",
   "devDependencies": {
     "http-server": "^0.9.0",
     "node-sass": "^4.5.0"
