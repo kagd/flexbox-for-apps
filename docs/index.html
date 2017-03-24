@@ -70,8 +70,8 @@
               <h2>Grid Content</h2>
               <p>
                 <code class="html">.grid-content</code> behaves like <code class="html">.grid-block</code>
-                But <code class="html">.grid-content</code> will have left and right padding and
-                (as the name implies) it is meant to display content.
+                But <code class="html">.grid-content</code> will have left and right padding by default. And,
+                as the name implies, it is meant to display content.
               </p>
 
               <p>
@@ -82,21 +82,52 @@
 
               <div class="demo-container">
                 <div class="grid-block">
-                  <div class="grid-content demo-content">.grid-content (has padding)</div>
-                  <div class="grid-block demo-block">.grid-block (no padding)</div>
+                  <div class="grid-content demo-content">.grid-content</div>
+                  <div class="grid-content demo-content">.grid-content</div>
                 </div>
               </div>
 
               <pre><code class="html">&lt;div class="grid-block"&gt;
-  &lt;div class="grid-content"&gt;.grid-content (has padding)&lt;/div&gt;
-  &lt;div class="grid-block"&gt;.grid-block (no padding)&lt;/div&gt;
+  &lt;div class="grid-content"&gt;.grid-content&lt;/div&gt;
+  &lt;div class="grid-content"&gt;.grid-content&lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
 
+              <h4>Grid Content without padding</h4>
+              <p>
+                To remove the default padding of <code class="html">.grid-content</code> add the class 
+                <code class="html">collapse</code>.
+              </p>
+
+              <pre><code class="html">&lt;div class="grid-block"&gt;
+  &lt;div class="grid-content collapse"&gt;.grid-content without padding&lt;/div&gt;
+  &lt;div class="grid-content collapse"&gt;.grid-content without padding&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+              <div class="demo-container">
+                <div class="grid-block">
+                  <div class="grid-content collapse demo-content">.grid-content without padding</div>
+                  <div class="grid-content collapse demo-content">.grid-content without padding</div>
+                </div>
+              </div>
+
               <h3>Intermixing Grid Block and Grid Content</h3>
               <p>
-                Both classes can be intermixed (as the example above shows) to acheive the desired layout.
+                Both classes can be intermixed to achieve your desired layout.
               </p>
+
+              <div class="demo-container">
+                <div class="grid-block">
+                  <div class="grid-content demo-content">.grid-content</div>
+                  <div class="grid-block demo-block">.grid-block</div>
+                </div>
+              </div>
+
+              <pre><code class="html">&lt;div class="grid-block"&gt;
+  &lt;div class="grid-content"&gt;.grid-content&lt;/div&gt;
+  &lt;div class="grid-block"&gt;.grid-block&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
 
               <a name="column-sizing"></a>
               <h2>Column Sizing</h2>
@@ -248,12 +279,12 @@
 
               <pre><code class="html">&lt;div class="grid-block"&gt;
   &lt;div class="grid-block vertical"&gt;
-    &lt;div class="grid-block demo-block"&gt;I expand since the other content shrinks&lt;/div&gt;
-    &lt;div class="grid-block demo-block shrink"&gt;Box shrinks to fit content&lt;/div&gt;
+    &lt;div class="grid-block"&gt;I expand since the other content shrinks&lt;/div&gt;
+    &lt;div class="grid-block shrink"&gt;Box shrinks to fit content&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class="grid-block vertical"&gt;
-    &lt;div class="grid-block demo-block shrink"&gt;Box shrinks to fit content&lt;/div&gt;
-    &lt;div class="grid-block demo-block"&gt;I expand since the other content shrinks&lt;/div&gt;
+    &lt;div class="grid-block shrink"&gt;Box shrinks to fit content&lt;/div&gt;
+    &lt;div class="grid-block"&gt;I expand since the other content shrinks&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -271,6 +302,106 @@
                 </div>
               </div>
 
+              <h2>Intermixing vertical and horizontal classes</h2>
+              <p>
+                To accomodate desktop, mobile and everything in between, flexbox-for-apps allows
+                you to define different layouts (vertical vs. horizontal) on different screen sizes.
+              </p>
+
+              <p>
+                <code class="html">.small-vertical</code>, <code class="html">.medium-vertical</code> and
+                <code class="html">.large-vertical</code> cause their children to have vertical layouts
+                at their respective breakpoints.
+              </p>
+
+              <div class="demo-container expand">
+                <div class="grid-block">
+                  <div class="grid-block small-vertical">
+                    <div class="grid-content demo-block">
+                      I will be on top starting at the small breakpoint.
+                    </div>
+                    <div class="grid-content demo-block">
+                      I will be on top starting at the small breakpoint.
+                    </div>
+                  </div>
+                  <div class="grid-block large-vertical">
+                    <div class="grid-content demo-block">
+                      I will be on top starting at the large breakpoint.
+                    </div>
+                    <div class="grid-content demo-block">
+                      I will be on bottom starting at the large breakpoint.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <pre><code class="html">&lt;div class="grid-block"&gt;
+  &lt;div class="grid-block small-vertical"&gt;
+    &lt;div class="grid-content"&gt;
+      I will be on top starting at the small breakpoint.
+    &lt;/div&gt;
+    &lt;div class="grid-content"&gt;
+      I will be on top starting at the small breakpoint.
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="grid-block large-vertical"&gt;
+    &lt;div class="grid-content"&gt;
+      I will be on top starting at the large breakpoint.
+    &lt;/div&gt;
+    &lt;div class="grid-content"&gt;
+      I will be on bottom starting at the large breakpoint.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+
+              <p>
+                The same goes for horizontal layouts.
+                <code class="html">.small-horizontal</code>, <code class="html">.medium-horizontal</code> and
+                <code class="html">.large-horizontal</code> cause their children to have horizontal layouts
+                at their respective breakpoints.
+              </p>
+
+              <div class="demo-container expand">
+                <div class="grid-block">
+                  <div class="grid-block vertical large-horizontal">
+                    <div class="grid-content demo-block">
+                      I will be on top at the small breakpoint and horizontal starting at medium.
+                    </div>
+                    <div class="grid-content demo-block">
+                      I will be on bottom at the small breakpoint and horizontal starting at medium.
+                    </div>
+                  </div>
+                  <div class="grid-block vertical large-horizontal">
+                    <div class="grid-content demo-block">
+                      I will be on top until at the large breakpoint.
+                    </div>
+                    <div class="grid-content demo-block">
+                      I will be on bottom until at the large breakpoint.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <pre><code class="html">&lt;div class="grid-block"&gt;
+  &lt;div class="grid-block small-vertical medium-horizontal"&gt;
+    &lt;div class="grid-content"&gt;
+      I will be on top at the small breakpoint and horizontal starting at medium.
+    &lt;/div&gt;
+    &lt;div class="grid-content"&gt;
+      I will be on bottom at the small breakpoint and horizontal starting at medium.
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="grid-block vertical large-horizontal"&gt;
+    &lt;div class="grid-content"&gt;
+      I will be on top until at the large breakpoint.
+    &lt;/div&gt;
+    &lt;div class="grid-content"&gt;
+      I will be on bottom until at the large breakpoint.
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
             </div>
           </section>
         </div>
